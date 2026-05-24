@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Education Hub - Fuyad Computer & Stationery</title>
+    <link rel="shortcut icon" href="Logo/logo.png" type="image/png">
+    
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #3b82f6;
+            --secondary: #0f172a;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #06b6d4;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --card-bg: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+        }
+        
+        [data-theme="dark"] {
+            --gray-50: #0f172a;
+            --gray-100: #1e293b;
+            --gray-200: #334155;
+            --gray-300: #475569;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--gray-50);
+            color: var(--text-primary);
+            transition: all 0.3s;
+        }
+        
+        /* Header */
+        .edu-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-area img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #3b82f6;
+        }
+        
+        .logo-area h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #3b82f6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .edu-hero {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .edu-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .edu-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .search-bar {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: white;
+            color: #1e293b;
+        }
+        
+        .search-bar button {
+            padding: 15px 30px;
+            background: #0f172a;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        .search-bar button:hover {
+            background: #1e293b;
+            transform: translateY(-2px);
+        }
+        
+        /* Stats Banner */
+        .stats-banner {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        /* Container */
+        .edu-container {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        /* Section Styles */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--primary);
+        }
+        
+        .section-title i {
+            font-size: 1.8rem;
+        }
+        
+        /* Board Cards Grid */
+        .boards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .board-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            border: 1px solid var(--gray-200);
+            cursor: pointer;
+        }
+        
+        .board-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .board-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .board-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .board-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .board-card p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+        
+        /* University Cards */
+        .uni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .uni-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .uni-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .uni-type {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        
+        .uni-type.public {
+            background: #10b981;
+            color: white;
+        }
+        
+        .uni-type.private {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        .uni-type.national {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .uni-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            padding-right: 80px;
+        }
+        
+        .uni-card p {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .uni-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .uni-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background: var(--gray-100);
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            color: var(--text-primary);
+            transition: 0.3s;
+        }
+        
+        .uni-links a:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Result Archive */
+        .result-section {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .result-filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .result-filters select, .result-filters button {
+            padding: 12px 20px;
+            border-radius: 40px;
+            border: 1px solid var(--gray-200);
+            background: var(--gray-50);
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+        
+        .result-filters button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            font-weight: 600;
+        }
+        
+        .result-table {
+            width: 100%;
+            overflow-x: auto;
+        }
+        
+        .result-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .result-table th, .result-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .result-table th {
+            background: var(--gray-100);
+            font-weight: 600;
+        }
+        
+        .result-table tr:hover {
+            background: var(--gray-100);
+        }
+        
+        .result-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Notice Board */
+        .notice-board {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            color: #78350f;
+        }
+        
+        [data-theme="dark"] .notice-board {
+            background: linear-gradient(135deg, #451a03, #78350f);
+            color: #fef3c7;
+        }
+        
+        .notice-board h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .notice-list {
+            list-style: none;
+        }
+        
+        .notice-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            transition: 0.3s;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--gray-900);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .edu-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .edu-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .edu-container {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .boards-grid, .uni-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="edu-header">
+    <div class="logo-area">
+        <img src="Logo/logo.png" alt="Logo" onerror="this.src='https://placehold.co/50x50'">
+        <h1>Fuyad Computer & Stationery</h1>
+    </div>
+    <div class="nav-links">
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="jobs.php"><i class="fas fa-briefcase"></i> Jobs</a>
+        <a href="education.html" class="active"><i class="fas fa-graduation-cap"></i> Education</a>
+        <a href="blog.php"><i class="fas fa-newspaper"></i> Blog</a>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="edu-hero">
+    <h1 data-aos="fade-up"><i class="fas fa-graduation-cap"></i> Education Hub</h1>
+    <p data-aos="fade-up" data-aos-delay="100">Your complete destination for Bangladesh education resources</p>
+    
+    <div class="search-bar" data-aos="fade-up" data-aos-delay="200">
+        <input type="text" id="searchInput" placeholder="🔍 Search board, university or result...">
+        <button onclick="searchEducation()"><i class="fas fa-search"></i> Search</button>
+    </div>
+    
+    <div class="stats-banner" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-item">
+            <div class="stat-number">11</div>
+            <div class="stat-label">Education Boards</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">150+</div>
+            <div class="stat-label">Universities</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Years Archive</div>
+        </div>
+    </div>
+</section>
+
+<div class="edu-container">
+    
+    <!-- Notice Board -->
+    <div class="notice-board" data-aos="fade-up">
+        <h3><i class="fas fa-bell"></i> Latest Education Notice</h3>
+        <ul class="notice-list" id="noticeList">
+            <li><i class="fas fa-newspaper"></i> HSC Result 2025 will be published on July 15</li>
+            <li><i class="fas fa-newspaper"></i> National University Honours Admission 2025-26 notice published</li>
+            <li><i class="fas fa-newspaper"></i> SSC Result 2025 announced - Check now</li>
+            <li><i class="fas fa-newspaper"></i> University Admission Test schedules for 2025-26 session</li>
+        </ul>
+    </div>
+    
+    <!-- Education Boards Section -->
+    <h2 class="section-title" data-aos="fade-right">
+        <i class="fas fa-chalkboard"></i> Education Boards
+    </h2>
+    <div class="boards-grid" id="boardsGrid">
+        <!-- Boards will be populated by JS -->
+    </div>
+    
+    <!-- Universities Section -->
+    <h2 class="section-title" data-aos="fade-right">
+        <i class="fas fa-university"></i> Universities
+    </h2>
+    <div class="uni-grid" id="uniGrid">
+        <!-- Universities will be populated by JS -->
+    </div>
+    
+    <!-- Result Archive Section -->
+    <div class="result-section" data-aos="fade-up">
+        <h2 class="section-title" style="margin-top: 0;">
+            <i class="fas fa-archive"></i> Result Archive
+        </h2>
+        
+        <div class="result-filters">
+            <select id="examType">
+                <option value="ssc">SSC/Dakhil</option>
+                <option value="hsc">HSC/Alim</option>
+                <option value="jsc">JSC/JDC</option>
+                <option value="nu">National University</option>
+                <option value="du">Dhaka University</option>
+            </select>
+            <select id="yearSelect">
+                <!-- Years populated by JS -->
+            </select>
+            <select id="boardSelect">
+                <!-- Boards populated by JS -->
+            </select>
+            <button onclick="searchResult()"><i class="fas fa-search"></i> Check Result</button>
+        </div>
+        
+        <div class="result-table" id="resultTable">
+            <table>
+                <thead>
+                    <tr><th>Exam</th><th>Year</th><th>Board</th><th>Result Link</th></tr>
+                </thead>
+                <tbody id="resultList">
+                    <tr><td colspan="4" style="text-align:center;">Select filters to view results</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Academic Calendar -->
+    <h2 class="section-title" data-aos="fade-right">
+        <i class="fas fa-calendar-alt"></i> Academic Calendar 2025-26
+    </h2>
+    <div class="boards-grid" data-aos="fade-up">
+        <div class="board-card">
+            <div class="board-icon" style="background: #10b981;"><i class="fas fa-calendar"></i></div>
+            <h3>SSC Exam 2026</h3>
+            <p>Starts: February 15, 2026</p>
+            <p>Ends: March 15, 2026</p>
+        </div>
+        <div class="board-card">
+            <div class="board-icon" style="background: #f59e0b;"><i class="fas fa-calendar"></i></div>
+            <h3>HSC Exam 2026</h3>
+            <p>Starts: April 10, 2026</p>
+            <p>Ends: May 20, 2026</p>
+        </div>
+        <div class="board-card">
+            <div class="board-icon" style="background: #2563eb;"><i class="fas fa-calendar"></i></div>
+            <h3>NU Honours Exam</h3>
+            <p>Starts: November 15, 2025</p>
+            <p>Ends: December 30, 2025</p>
+        </div>
+        <div class="board-card">
+            <div class="board-icon" style="background: #ef4444;"><i class="fas fa-calendar"></i></div>
+            <h3>University Admission</h3>
+            <p>Application: October-November 2025</p>
+            <p>Test: December 2025 - January 2026</p>
+        </div>
+    </div>
+    
+    <!-- Study Resources -->
+    <h2 class="section-title" data-aos="fade-right">
+        <i class="fas fa-book-open"></i> Study Resources
+    </h2>
+    <div class="boards-grid" data-aos="fade-up">
+        <div class="board-card">
+            <div class="board-icon" style="background: #8b5cf6;"><i class="fas fa-file-pdf"></i></div>
+            <h3>SSC Suggestion 2026</h3>
+            <p>Download subject-wise suggestion for all boards</p>
+        </div>
+        <div class="board-card">
+            <div class="board-icon" style="background: #ec489a;"><i class="fas fa-file-pdf"></i></div>
+            <h3>HSC Suggestion 2026</h3>
+            <p>Download subject-wise suggestion for all boards</p>
+        </div>
+        <div class="board-card">
+            <div class="board-icon" style="background: #06b6d4;"><i class="fas fa-video"></i></div>
+            <h3>Lecture Videos</h3>
+            <p>Free video lectures for all subjects</p>
+        </div>
+        <div class="board-card">
+            <div class="board-icon" style="background: #84cc16;"><i class="fas fa-question-circle"></i></div>
+            <h3>Model Tests</h3>
+            <p>Practice with online model tests</p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2025 Fuyad Computer And Stationery. All rights reserved.</p>
+</footer>
+
+<!-- Theme Toggle -->
+<button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+</button>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+    
+    // Theme Toggle
+    function initTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.querySelector('#themeToggle i').className = 'fas fa-sun';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.querySelector('#themeToggle i').className = 'fas fa-moon';
+        }
+    }
+    
+    document.getElementById('themeToggle').onclick = () => {
+        const curr = document.documentElement.getAttribute('data-theme');
+        if (curr === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            document.querySelector('#themeToggle i').className = 'fas fa-moon';
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            document.querySelector('#themeToggle i').className = 'fas fa-sun';
+        }
+    };
+    initTheme();
+    
+    // Education Boards Data
+    const boards = [
+        { name: "Dhaka Board", short: "DHA", website: "www.dhakaeducationboard.gov.bd", type: "SSC/HSC" },
+        { name: "Rajshahi Board", short: "RAJ", website: "www.rajshahieducationboard.gov.bd", type: "SSC/HSC" },
+        { name: "Comilla Board", short: "COM", website: "www.comillaeducationboard.gov.bd", type: "SSC/HSC" },
+        { name: "Jessore Board", short: "JES", website: "www.jessoreeducationboard.gov.bd", type: "SSC/HSC" },
+        { name: "Chittagong Board", short: "CHI", website: "www.chittagongeducationboard.gov.bd", type: "SSC/HSC" },
+        { name: "Barisal Board", short: "BAR", website: "www.barisaleducationboard.gov.bd", type: "SSC/HSC" },
+        { name: "Sylhet Board", short: "SYL", website: "www.sylheteducationboard.gov.bd", type: "SSC/HSC" },
+        { name: "Dinajpur Board", short: "DIN", website: "www.dinajpureducationboard.gov.bd", type: "SSC/HSC" },
+        { name: "Mymensingh Board", short: "MYM", website: "www.mymensingheducationboard.gov.bd", type: "SSC/HSC" },
+        { name: "Madrasah Board", short: "MAD", website: "www.bmeb.gov.bd", type: "Dakhil/Alim" },
+        { name: "Technical Board", short: "TEC", website: "www.bteb.gov.bd", type: "Vocational" }
+    ];
+    
+    // Universities Data
+    const universities = [
+        { name: "National University", type: "national", website: "www.nu.ac.bd", resultSite: "www.nu.ac.bd/results" },
+        { name: "Dhaka University", type: "public", website: "www.du.ac.bd", resultSite: "www.du.ac.bd/result" },
+        { name: "Rajshahi University", type: "public", website: "www.ru.ac.bd", resultSite: "www.ru.ac.bd/result" },
+        { name: "Chittagong University", type: "public", website: "www.cu.ac.bd", resultSite: "www.cu.ac.bd/result" },
+        { name: "Jahangirnagar University", type: "public", website: "www.juniv.edu", resultSite: "www.juniv.edu/result" },
+        { name: "Khulna University", type: "public", website: "www.ku.ac.bd", resultSite: "www.ku.ac.bd/result" },
+        { name: "BUET", type: "public", website: "www.buet.ac.bd", resultSite: "www.buet.ac.bd/result" },
+        { name: "DUET", type: "public", website: "www.duet.ac.bd", resultSite: "www.duet.ac.bd/result" },
+        { name: "North South University", type: "private", website: "www.northsouth.edu", resultSite: "www.northsouth.edu/result" },
+        { name: "BRAC University", type: "private", website: "www.bracu.ac.bd", resultSite: "www.bracu.ac.bd/result" },
+        { name: "East West University", type: "private", website: "www.ewubd.edu", resultSite: "www.ewubd.edu/result" },
+        { name: "AIUB", type: "private", website: "www.aiub.edu", resultSite: "www.aiub.edu/result" },
+        { name: "UIU", type: "private", website: "www.uiu.ac.bd", resultSite: "www.uiu.ac.bd/result" },
+        { name: "DIU", type: "private", website: "www.diu.ac", resultSite: "www.diu.ac/result" }
+    ];
+    
+    // Result Archive Data
+    const results = [
+        { exam: "SSC", year: "2025", board: "Dhaka", link: "https://www.educationboardresults.gov.bd" },
+        { exam: "SSC", year: "2025", board: "Rajshahi", link: "https://www.educationboardresults.gov.bd" },
+        { exam: "SSC", year: "2025", board: "Comilla", link: "https://www.educationboardresults.gov.bd" },
+        { exam: "HSC", year: "2025", board: "Dhaka", link: "https://www.educationboardresults.gov.bd" },
+        { exam: "HSC", year: "2025", board: "Rajshahi", link: "https://www.educationboardresults.gov.bd" },
+        { exam: "NU", year: "2024", board: "National University", link: "https://www.nu.ac.bd/results" },
+        { exam: "NU", year: "2023", board: "National University", link: "https://www.nu.ac.bd/results" }
+    ];
+    
+    // Populate Boards
+    function loadBoards() {
+        const container = document.getElementById('boardsGrid');
+        container.innerHTML = boards.map(board => `
+            <div class="board-card" onclick="window.open('https://${board.website}', '_blank')">
+                <div class="board-icon"><i class="fas fa-school"></i></div>
+                <h3>${board.name}</h3>
+                <p>${board.type} • ${board.short}</p>
+                <p style="margin-top: 8px;"><i class="fas fa-external-link-alt"></i> Visit Website</p>
+            </div>
+        `).join('');
+    }
+    
+    // Populate Universities
+    function loadUniversities() {
+        const container = document.getElementById('uniGrid');
+        container.innerHTML = universities.map(uni => `
+            <div class="uni-card">
+                <span class="uni-type ${uni.type}">${uni.type === 'public' ? 'Public' : uni.type === 'private' ? 'Private' : 'National'}</span>
+                <h3>${uni.name}</h3>
+                <p><i class="fas fa-globe"></i> ${uni.website}</p>
+                <div class="uni-links">
+                    <a href="https://${uni.website}" target="_blank"><i class="fas fa-external-link-alt"></i> Website</a>
+                    <a href="https://${uni.resultSite}" target="_blank"><i class="fas fa-chart-line"></i> Result</a>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    // Populate Year Select
+    function loadYears() {
+        const yearSelect = document.getElementById('yearSelect');
+        const currentYear = new Date().getFullYear();
+        for (let year = currentYear; year >= 1990; year--) {
+            yearSelect.innerHTML += `<option value="${year}">${year}</option>`;
+        }
+    }
+    
+    // Populate Board Select
+    function loadBoardSelect() {
+        const boardSelect = document.getElementById('boardSelect');
+        const uniqueBoards = [...new Set(results.map(r => r.board))];
+        boardSelect.innerHTML = '<option value="">All Boards</option>';
+        uniqueBoards.forEach(board => {
+            boardSelect.innerHTML += `<option value="${board}">${board}</option>`;
+        });
+    }
+    
+    // Search Result
+    function searchResult() {
+        const examType = document.getElementById('examType').value;
+        const year = document.getElementById('yearSelect').value;
+        const board = document.getElementById('boardSelect').value;
+        
+        let filtered = results;
+        
+        if (examType !== 'ssc' && examType !== 'hsc' && examType !== 'jsc' && examType !== 'nu' && examType !== 'du') {
+            // Map exam type
+        }
+        
+        if (board) {
+            filtered = filtered.filter(r => r.board === board);
+        }
+        
+        const resultList = document.getElementById('resultList');
+        if (filtered.length === 0) {
+            resultList.innerHTML = '<tr><td colspan="4" style="text-align:center;">No results found</td></tr>';
+        } else {
+            resultList.innerHTML = filtered.map(r => `
+                <tr>
+                    <td>${r.exam}</td>
+                    <td>${r.year}</td>
+                    <td>${r.board}</td>
+                    <td><a href="${r.link}" target="_blank" class="result-link"><i class="fas fa-external-link-alt"></i> Check Result</a></td>
+                </tr>
+            `).join('');
+        }
+    }
+    
+    // Search Everything
+    function searchEducation() {
+        const term = document.getElementById('searchInput').value.toLowerCase();
+        
+        // Filter boards
+        const filteredBoards = boards.filter(b => b.name.toLowerCase().includes(term));
+        const container = document.getElementById('boardsGrid');
+        if (filteredBoards.length > 0) {
+            container.innerHTML = filteredBoards.map(board => `
+                <div class="board-card" onclick="window.open('https://${board.website}', '_blank')">
+                    <div class="board-icon"><i class="fas fa-school"></i></div>
+                    <h3>${board.name}</h3>
+                    <p>${board.type}</p>
+                </div>
+            `).join('');
+        } else if (term) {
+            container.innerHTML = '<div style="grid-column:1/-1; text-align:center;">No boards found</div>';
+        } else {
+            loadBoards();
+        }
+        
+        // Filter universities
+        const filteredUnis = universities.filter(u => u.name.toLowerCase().includes(term));
+        const uniContainer = document.getElementById('uniGrid');
+        if (filteredUnis.length > 0) {
+            uniContainer.innerHTML = filteredUnis.map(uni => `
+                <div class="uni-card">
+                    <span class="uni-type ${uni.type}">${uni.type}</span>
+                    <h3>${uni.name}</h3>
+                    <div class="uni-links">
+                        <a href="https://${uni.website}" target="_blank">Website</a>
+                        <a href="https://${uni.resultSite}" target="_blank">Result</a>
+                    </div>
+                </div>
+            `).join('');
+        } else if (term) {
+            uniContainer.innerHTML = '<div style="grid-column:1/-1; text-align:center;">No universities found</div>';
+        } else {
+            loadUniversities();
+        }
+    }
+    
+    // Initialize
+    loadBoards();
+    loadUniversities();
+    loadYears();
+    loadBoardSelect();
+    
+    // Make functions global
+    window.searchEducation = searchEducation;
+    window.searchResult = searchResult;
+</script>
+</body>
+</html>
